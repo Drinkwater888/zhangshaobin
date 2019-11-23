@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
+  application:
+    name: user-server
+
+mybatis:
+  type-aliases-package: com.itheima.domain
+  mapper-locations:
+    - classpath:/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/,http://localhost:10087/eureka/
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
